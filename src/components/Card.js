@@ -1,11 +1,13 @@
 import React from 'react';
 
-const Card = ({ id, name, height, weight }) => {
+const Card = ({ id, name, weight, height }) => {
 	return (
-		<>
-			<h1>name: {name}</h1>
-			<p>description</p>
-		</>
+		<div className='card'>
+			<p>#{id}</p>
+			<p>Name: {name}</p>
+			<p>Weight: {weight / 100} g</p>
+			<p>Height: {height / 10} m</p>
+		</div>
 	);
 };
 
