@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'react-feather';
 import './App.css';
 
 import Card from './components/Card';
+import Search from './components/Search';
 
 function App() {
   const [currentPokemon, setCurrentPokemon] = useState({});
@@ -13,9 +14,12 @@ function App() {
     getPokemon(currentId);
   }, [currentId]);
 
-  const getPokemon = async (useId) => {
+  // get Pokemon object from API
+  // used to display single Pokedex and for search
+  // pokemonIdentifier: ID (number) or name (string)
+  const getPokemon = async (pokemonIdentifier) => {
     const singlePokemon = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${useId}/`
+      `https://pokeapi.co/api/v2/pokemon/${pokemonIdentifier}/`
     );
     console.log('singlePokemon: ', singlePokemon.data);
     const { id, height, weight } = singlePokemon.data;
@@ -48,6 +52,7 @@ function App() {
   return (
     <section className='App container'>
       <h2>Pokedex</h2>
+      <Search />
       <article className='main'>
         <img className='img' src={image} /><br />
         <div className='nav'>
