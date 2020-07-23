@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import Card from './components/Card';
+import Pokedex from './components/Pokedex';
 import Search from './components/Search';
 
 const App = () => {
@@ -10,9 +10,9 @@ const App = () => {
     <main>
       <Switch>
         {/* TODO get ID match working */}
-        {/* <Route exact path='/:pokemonId' render={({ match }) => <Card pokemonId={match.params.pokemonId} />} /> */}
+        <Route exact path='/:pokemonId' render={({ match }) => <Pokedex pokemonId={match.params.pokemonId} />} />
         <Route exact path='/search' component={Search} />
-        <Route path='/' component={Card} />
+        <Route path='/' component={Pokedex} />
       </Switch>
     </main>
   );

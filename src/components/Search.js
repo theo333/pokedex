@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchForm from './SearchForm';
+import getSinglePokemon from '../utils';
 
 const Search = () => {
 	const [currentPokemon, setCurrentPokemon] = useState({});
