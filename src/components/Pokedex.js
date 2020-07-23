@@ -11,7 +11,7 @@ const Pokedex = ({ pokemonId }) => {
       <Link to='/search'>
         Search
       </Link>
-      <Card />
+      <Card isSearch={false} />
     </>
   );
 };

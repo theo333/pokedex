@@ -6,7 +6,7 @@ import CardInfo from './CardInfo';
 import getSinglePokemon from '../utils';
 import { PokedexContext } from '../context/PokedexContext';
 
-const Card = () => {
+const Card = ({ isSearch }) => {
   const [idPokemon, setIdPokemon] = useContext(PokedexContext);
   const [currentPokemon, setCurrentPokemon] = useState({});
   // const [currentId, setCurrentId] = useState(1);

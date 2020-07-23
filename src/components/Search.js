@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SearchForm from './SearchForm';
 import getSinglePokemon from '../utils';
+import Card from './Card';
 
 const Search = () => {
 	const [currentPokemon, setCurrentPokemon] = useState({});
@@ -28,6 +29,7 @@ const Search = () => {
 				Pokedex
       		</Link>
 			<SearchForm />
+			<Card isSearch={true} />
 		</section>
 	);
 };
