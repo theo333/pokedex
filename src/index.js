@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { HashRouter as Router } from 'react-router-dom';
+import { PokedexContextProvider } from './context/PokedexContext';
 import * as serviceWorker from './serviceWorker';
 
 const root = document.getElementById('root');
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <PokedexContextProvider>
+      <Router>
+        <App />
+      </Router>
+    </PokedexContextProvider>
   </React.StrictMode>,
   root
 );

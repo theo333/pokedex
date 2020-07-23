@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import '../App.css';
 
 import CardInfo from './CardInfo';
 import getSinglePokemon from '../utils';
+import { PokedexContext } from '../context/PokedexContext';
 
 const Card = () => {
+  const [idPokemon, setIdPokemon] = useContext(PokedexContext);
   const [currentPokemon, setCurrentPokemon] = useState({});
-  const [currentId, setCurrentId] = useState(1);
+  // const [currentId, setCurrentId] = useState(1);
 
   // console.log('match currentId | pokemonId: ', currentId, pokemonId);
 
   useEffect(() => {
-    getPokemon(currentId);
-  }, [currentId]); // 
+    getPokemon(idPokemon);
+  }, [idPokemon]); // 
 
   // get single Pokemon object from API
   // used to display single Pokemon
@@ -21,17 +23,17 @@ const Card = () => {
   const getPokemon = async (pokemonIdentifier) => {
     const _currentPokemon = await getSinglePokemon(pokemonIdentifier);
 
-    setCurrentId(_currentPokemon.id);
+    setIdPokemon(_currentPokemon.id);
     setCurrentPokemon(_currentPokemon);
   };
 
   // change ID to previous or next Pokemon
   const changePokemon = direction => {
     // TODO add exceptions for first and last IDs
-    console.log('direction: ', direction, currentId);
-    const newId = direction === 'prev' ? currentId - 1 : currentId + 1;
+    console.log('direction: ', direction, idPokemon);
+    const newId = direction === 'prev' ? idPokemon - 1 : idPokemon + 1;
     console.log('newId: ', newId);
-    setCurrentId(newId);
+    setIdPokemon(newId);
   };
 
   const { id, name, weight, height, image } = currentPokemon;
