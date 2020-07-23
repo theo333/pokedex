@@ -16,14 +16,14 @@ const Card = ({ pokemonId }) => {
     getPokemon(currentId);
   }, [currentId]); // 
 
-  // get Pokemon object from API
-  // used to display single Pokedex and for search
-  // pokemonIdentifier: ID (number) or name (string)
+  // get single Pokemon object from API
+  // used to display single Pokedex
+  // pokemonIdentifier: ID (number)
   const getPokemon = async (pokemonIdentifier) => {
-    const _current = await getSinglePokemon(pokemonIdentifier);
+    const _currentPokemon = await getSinglePokemon(pokemonIdentifier);
 
-    setCurrentId(_current.id);
-    setCurrentPokemon(_current);
+    setCurrentId(_currentPokemon.id);
+    setCurrentPokemon(_currentPokemon);
   };
 
   // change ID to previous or next Pokemon
