@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import SearchForm from './SearchForm';
 import getSinglePokemon from '../utils';
 
@@ -23,6 +24,9 @@ const Search = () => {
 	return (
 		<section className='container'>
 			<p>Search</p>
+			<Link to='/'>
+				Pokedex
+      		</Link>
 			<SearchForm />
 		</section>
 	);

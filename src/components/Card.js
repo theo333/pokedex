@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import '../App.css';
 
