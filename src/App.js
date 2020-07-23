@@ -7,14 +7,14 @@ import Search from './components/Search';
 
 const App = () => {
   return (
-    <>
+    <main>
       <Switch>
         {/* TODO get ID match working */}
         {/* <Route exact path='/:pokemonId' render={({ match }) => <Card pokemonId={match.params.pokemonId} />} /> */}
         <Route exact path='/search' component={Search} />
         <Route path='/' component={Card} />
       </Switch>
-    </>
+    </main>
   );
 }
 
