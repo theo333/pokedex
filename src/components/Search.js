@@ -1,26 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { PokedexContext } from '../context/PokedexContext';
 import { Link } from 'react-router-dom';
 import SearchForm from './SearchForm';
-import getSinglePokemon from '../utils';
 import Card from './Card';
 
 const Search = () => {
-	const [currentPokemon, setCurrentPokemon] = useState({});
-	const [currentId, setCurrentId] = useState(1);
+	const [nameSearch, setNameSearch] = useContext(PokedexContext);
+	const [idPokemon, setIdPokemon] = useContext(PokedexContext);
+	// const [currentPokemon, setCurrentPokemon] = useState({});
+	// const [currentId, setCurrentId] = useState(1);
 
-	useEffect(() => {
-		getPokemonByName(currentId);
-	}, [currentId]); // 
+	// useEffect(() => {
+	// 	setIdPokemon('');
+	// 	// getPokemonByName(currentId);
+	// }); // , [currentId]
 
-	// get single Pokemon object from API
-	// used to display single Pokedex from search
-	// pokemonName: name (string)
-	const getPokemonByName = async (pokemonName) => {
-		const searchedPokemon = await getSinglePokemon(pokemonName);
+	// // get single Pokemon object from API
+	// // used to display single Pokedex from search
+	// // pokemonName: name (string)
+	// const getPokemonByName = async (pokemonName) => {
+	// 	const searchedPokemon = await getSinglePokemon(pokemonName);
 
-		setCurrentId(searchedPokemon.id);
-		setCurrentPokemon(searchedPokemon);
-	};
+	// 	setCurrentId(searchedPokemon.id);
+	// 	setCurrentPokemon(searchedPokemon);
+	// };
+	console.log('Search - name: ', nameSearch)
 
 	return (
 		<section className='container'>
@@ -29,6 +33,7 @@ const Search = () => {
 				Pokedex
       		</Link>
 			<SearchForm />
+
 			<Card isSearch={true} />
 		</section>
 	);

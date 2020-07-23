@@ -14,6 +14,7 @@ const Card = ({ isSearch }) => {
   // console.log('match currentId | pokemonId: ', currentId, pokemonId);
 
   useEffect(() => {
+    console.log('isSearch: ', isSearch)
     getPokemon(idPokemon);
   }, [idPokemon]); // 
 
@@ -21,10 +22,15 @@ const Card = ({ isSearch }) => {
   // used to display single Pokemon
   // pokemonIdentifier: ID (number) or name (string)
   const getPokemon = async (pokemonIdentifier) => {
-    const _currentPokemon = await getSinglePokemon(pokemonIdentifier);
+    try {
+      const _currentPokemon = await getSinglePokemon(pokemonIdentifier);
 
-    setIdPokemon(_currentPokemon.id);
-    setCurrentPokemon(_currentPokemon);
+      setIdPokemon(_currentPokemon.id);
+      setCurrentPokemon(_currentPokemon);
+    } catch (err) {
+      console.log('Card err: ', err);
+
+    }
   };
 
   // change ID to previous or next Pokemon
@@ -38,21 +44,20 @@ const Card = ({ isSearch }) => {
 
   const { id, name, weight, height, image } = currentPokemon;
   return (
-    // <section className='container'>
-    //   <h2>Pokedex</h2>
-    //   <Link to='/search'>
-    //     Search
-    //   </Link>
     <article className='main'>
       <img className='img' src={image} /><br />
       <div className='nav'>
         {/* <Link to='/3'>Go to 3</Link> */}
-        <button className='btn-nav' onClick={() => changePokemon('prev')} disabled={id === 1 ? `{true}` : ''}>
-          <ChevronLeft color='red' size={90} />
-        </button>
-        <button className='btn-nav' onClick={() => changePokemon('next')} >
-          <ChevronRight color='red' size={90} />
-        </button>
+        {!isSearch ? (
+          <>
+            <button className='btn-nav' onClick={() => changePokemon('prev')} disabled={id === 1 ? `{true}` : ''}>
+              <ChevronLeft color='red' size={90} />
+            </button>
+            <button className='btn-nav' onClick={() => changePokemon('next')} >
+              <ChevronRight color='red' size={90} />
+            </button>
+          </>
+        ) : ''}
       </div>
       <CardInfo
         id={id}
@@ -61,7 +66,6 @@ const Card = ({ isSearch }) => {
         height={height}
       />
     </article>
-    // </section >
   );
 }
 

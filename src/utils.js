@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const getSinglePokemon = async (pokemonIdentifier) => {
-	const singlePokemon = await axios.get(
+	const { data } = await axios.get(
 		`https://pokeapi.co/api/v2/pokemon/${pokemonIdentifier}/`
 	);
-	console.log('singlePokemon: ', singlePokemon.data);
-	const { id, height, weight } = singlePokemon.data;
-	const { name } = singlePokemon.data.forms[0];
-	const image = singlePokemon.data.sprites.front_default;
+	console.log('singlePokemon: ', data);
+	const { id, height, weight } = data;
+	const { name } = data.forms[0];
+	const image = data.sprites.front_default;
 	return {
 		id,
 		name,

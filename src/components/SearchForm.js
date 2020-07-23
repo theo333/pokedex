@@ -9,7 +9,10 @@ const SearchForm = () => {
 		ev.preventDefault();
 		console.log(name, nameSearch);
 		setNameSearch(name);
-	}
+		setName('');
+	};
+
+	// TODO error handling - here or in Card???
 	return (
 		<form onSubmit={handleSubmit}>
 			<input
@@ -24,7 +27,7 @@ const SearchForm = () => {
 				Search
 			</button>
 		</form>
-	)
+	);
 };
 
 export default SearchForm;

@@ -7,12 +7,13 @@ import Card from './Card';
 const Pokedex = ({ pokemonId }) => {
   console.log(pokemonId)
   return (
-    <>
+    <section className='container'>
+      <h1>Pokedex</h1>
       <Link to='/search'>
         Search
       </Link>
       <Card isSearch={false} />
-    </>
+    </section>
   );
 };
 
