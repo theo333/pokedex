@@ -1,12 +1,13 @@
 import React from 'react';
 
+// displays Pokemon info
 const Card = ({ id, name, weight, height }) => {
 	return (
 		<div className='card-info'>
-			<p>#{id}</p>
-			<p>Name: {name}</p>
-			<p>Weight: {weight / 100} g</p>
-			<p>Height: {height / 10} m</p>
+			<p>#<span>{id}</span></p>
+			<p>Name: <span>{name}</span></p>
+			<p>Weight: <span>{weight / 100} g</span></p>
+			<p>Height: <span>{height / 10} m</span></p>
 		</div>
 	);
 };

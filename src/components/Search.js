@@ -10,6 +10,8 @@ const Search = () => {
 	const [currentPokemon, setCurrentPokemon] = useState({});
 	const [error, setError] = useState('');
 
+	// handles submit for search form
+	// gets Pokemon data from API
 	const handleSubmit = async (pokemonName) => {
 		try {
 			const searchedPokemon = await getSinglePokemon(pokemonName);
@@ -23,21 +25,19 @@ const Search = () => {
 	};
 
 	return (
-		<section className='container'>
-			< article className='main' >
-				<h1>Search</h1>
-				<div className='nav-link'>
-					<Link to='/'>
-						<span><Layers size={24} color={'red'} /></span> Pokedex
+		<>
+			<h1>Search</h1>
+			<div className='nav-link'>
+				<Link to='/'>
+					<span><Layers size={24} color={'red'} /></span> Pokedex
       				</Link>
-				</div>
-				<SearchForm onSubmit={handleSubmit} />
-				{error ? <h3 className='error-msg'>{error}</h3> : ''}
-				{Object.keys(currentPokemon).length ? (
-					<Card isSearch={true} currentPokemon={currentPokemon} />
-				) : ''}
-			</article>
-		</section>
+			</div>
+			<SearchForm onSubmit={handleSubmit} />
+			{error ? <h3 className='error-msg'>{error}</h3> : ''}
+			{Object.keys(currentPokemon).length ? (
+				<Card isSearch={true} currentPokemon={currentPokemon} />
+			) : ''}
+		</>
 	);
 };
 

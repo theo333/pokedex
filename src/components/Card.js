@@ -4,6 +4,7 @@ import '../App.css';
 
 import CardInfo from './CardInfo';
 
+// displays Pokemon image and info, forward and backward navigation 
 const Card = ({ isSearch, currentPokemon, changePokemon }) => {
   const { id, name, weight, height, image } = currentPokemon;
 

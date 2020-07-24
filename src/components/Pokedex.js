@@ -29,7 +29,7 @@ const Pokedex = () => {
     }
   };
 
-  // navigation: move to previous or next Pokemon
+  // navigation: change Pokemon ID in order to move to previous or next Pokemon
   const changePokemon = direction => {
     // TODO add exceptions for first and last IDs
     const newId = direction === 'prev' ? currentId - 1 : currentId + 1;
@@ -37,22 +37,20 @@ const Pokedex = () => {
   };
 
   return (
-    <section className='container'>
-      < article className='main' >
-        <h1>Pokedex</h1>
-        <div className='nav-link'>
-          <Link to='/search'>
-            <span><Search size={24} color={'red'} /></span> Search
+    <>
+      <h1>Pokedex</h1>
+      <div className='nav-link'>
+        <Link to='/search'>
+          <span><Search size={24} color={'red'} /></span> Search
           </Link>
-        </div>
-        {error ? <h2 className='error-msg'>{error}</h2> : ''}
-        <Card
-          isSearch={false}
-          currentPokemon={currentPokemon}
-          changePokemon={changePokemon}
-        />
-      </article>
-    </section>
+      </div>
+      {error ? <h2 className='error-msg'>{error}</h2> : ''}
+      <Card
+        isSearch={false}
+        currentPokemon={currentPokemon}
+        changePokemon={changePokemon}
+      />
+    </>
   );
 };
 

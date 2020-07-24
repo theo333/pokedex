@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 const SearchForm = ({ onSubmit }) => {
 	const [name, setName] = useState('');
 
+	// handles submit for form
 	const handleSubmit = ev => {
 		ev.preventDefault();
-		onSubmit(name);
+		onSubmit(name.toLowerCase());
+
+		// clears input field
 		setName('');
 	};
 
@@ -17,6 +20,9 @@ const SearchForm = ({ onSubmit }) => {
 				name='name'
 				value={name}
 				aria-label='Search'
+				aria-placeholder='enter Pokemon name'
+				placeholder='enter Pokemon name'
+				role='searchbox'
 				onChange={e => setName(e.target.value)}
 			/>
 			<button type='submit'>

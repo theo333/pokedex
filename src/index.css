@@ -90,6 +90,10 @@ code {
   margin-bottom: 0;
 }
 
+.card-info span {
+  font-weight: 800;
+}
+
 .card-info p:first-child {
   margin-top: 0;
 }
@@ -100,6 +104,7 @@ code {
 }
 
 /************ Search ************/
+
 .search-form {
   margin-bottom: 25px;
 }

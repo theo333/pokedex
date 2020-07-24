@@ -7,11 +7,15 @@ import Search from './components/Search';
 const App = () => {
   return (
     <main>
-      <Switch>
-        <Route exact path='/search' component={Search} />
-        <Route path='/' component={Pokedex} />
-      </Switch>
-    </main>
+      <section className='container'>
+        < article className='main' >
+          <Switch>
+            <Route exact path='/search' component={Search} />
+            <Route path='/' component={Pokedex} />
+          </Switch>
+        </article>
+      </section>
+    </main >
   );
 }
 
