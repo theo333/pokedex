@@ -8,7 +8,6 @@ const Card = ({ isSearch, currentPokemon, changePokemon }) => {
   const { id, name, weight, height, image } = currentPokemon;
 
   return (
-    // < article className='main' >
     <div className='card'>
       <img className='img' src={image} alt={`Pokemon character ${name} front`} />
       {!isSearch ? (
@@ -28,7 +27,6 @@ const Card = ({ isSearch, currentPokemon, changePokemon }) => {
         height={height}
       />
     </div>
-    // </article >
   );
 }
 

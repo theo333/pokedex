@@ -29,7 +29,7 @@ const Search = () => {
 				<div className='nav-link'>
 					<Link to='/'>
 						<span><Layers size={24} color={'red'} /></span> Pokedex
-      			</Link>
+      				</Link>
 				</div>
 				<SearchForm onSubmit={handleSubmit} />
 				{error ? <h3 className='error-msg'>{error}</h3> : ''}
