@@ -9,7 +9,7 @@ const Card = ({ isSearch, currentPokemon, changePokemon }) => {
 
   return (
     < article className='main' >
-      <img className='img' src={image} />
+      <img className='img' src={image} alt={`Pokemon character ${name} front`} />
       {!isSearch ? (
         <div className='nav'>
           <button className='btn-nav' onClick={() => changePokemon('prev')} disabled={id === 1 ? `{true}` : ''}>

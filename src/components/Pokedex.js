@@ -28,7 +28,7 @@ const Pokedex = () => {
     }
   };
 
-  // change ID to previous or next Pokemon
+  // navigation: move to previous or next Pokemon
   const changePokemon = direction => {
     // TODO add exceptions for first and last IDs
     const newId = direction === 'prev' ? currentId - 1 : currentId + 1;

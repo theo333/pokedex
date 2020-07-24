@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import SearchForm from './SearchForm';
 import Card from './Card';
 import getSinglePokemon from '../utils';
@@ -20,7 +21,6 @@ const Search = () => {
 		};
 	};
 
-	console.log('currentPokemon.length: ', currentPokemon.length)
 	return (
 		<section className='container'>
 			<p>Search</p>
