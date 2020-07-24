@@ -5,13 +5,11 @@ import '../App.css';
 import CardInfo from './CardInfo';
 
 const Card = ({ isSearch, currentPokemon, changePokemon }) => {
-  console.log('currentPokemon (Card): ', currentPokemon)
   const { id, name, weight, height, image } = currentPokemon;
 
   return (
     < article className='main' >
-      <img className='img' src={image} /><br />
-      {/* <Link to='/3'>Go to 3</Link> */}
+      <img className='img' src={image} />
       {!isSearch ? (
         <div className='nav'>
           <button className='btn-nav' onClick={() => changePokemon('prev')} disabled={id === 1 ? `{true}` : ''}>
