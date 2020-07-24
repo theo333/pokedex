@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Search } from 'react-feather';
 
 import Card from './Card';
 import getSinglePokemon from '../utils';
@@ -23,7 +24,7 @@ const Pokedex = () => {
       setError('');
     } catch (err) {
       console.log('Card err: ', err);
-      setError('Sorry there is no Pokemon with that ID.  Please try again.');
+      setError(`Sorry there is no Pokemon with that ID.<br />Please try again.`);
 
     }
   };
@@ -37,16 +38,20 @@ const Pokedex = () => {
 
   return (
     <section className='container'>
-      <h1>Pokedex</h1>
-      <Link to='/search'>
-        Search
-      </Link>
-      {error ? <h3 className='error-msg'>{error}</h3> : ''}
-      <Card
-        isSearch={false}
-        currentPokemon={currentPokemon}
-        changePokemon={changePokemon}
-      />
+      < article className='main' >
+        <h1>Pokedex</h1>
+        <div className='nav-link'>
+          <Link to='/search'>
+            <span><Search size={24} color={'red'} /></span> Search
+          </Link>
+        </div>
+        {error ? <h2 className='error-msg'>{error}</h2> : ''}
+        <Card
+          isSearch={false}
+          currentPokemon={currentPokemon}
+          changePokemon={changePokemon}
+        />
+      </article>
     </section>
   );
 };

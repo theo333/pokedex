@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({ id, name, weight, height }) => {
 	return (
-		<div className='card'>
+		<div className='card-info'>
 			<p>#{id}</p>
 			<p>Name: {name}</p>
 			<p>Weight: {weight / 100} g</p>
