@@ -7,9 +7,21 @@ export const PokedexContext = createContext();
 export const PokedexContextProvider = props => {
 	const [idPokemon, setIdPokemon] = useState(1);
 	const [nameSearch, setNameSearch] = useState('');
+	const [displayCard, setDisplayCard] = useState(false);
+	const [error, setError] = useState('');
 
+	const value = [
+		idPokemon,
+		setIdPokemon,
+		nameSearch,
+		setNameSearch,
+		displayCard,
+		setDisplayCard,
+		error,
+		setError,
+	];
 	return (
-		<PokedexContext.Provider value={[idPokemon, setIdPokemon, nameSearch, setNameSearch]}>
+		<PokedexContext.Provider value={value} >
 			{props.children}
 		</PokedexContext.Provider>
 	);

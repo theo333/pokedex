@@ -7,11 +7,11 @@ const SearchForm = () => {
 
 	const handleSubmit = ev => {
 		ev.preventDefault();
-		console.log(name, nameSearch);
 		setNameSearch(name);
-		setName('');
+		// setName('');
 	};
 
+	console.log('name, nameSearch: ', name, nameSearch);
 	// TODO error handling - here or in Card???
 	return (
 		<form onSubmit={handleSubmit}>

@@ -5,8 +5,7 @@ import SearchForm from './SearchForm';
 import Card from './Card';
 
 const Search = () => {
-	const [nameSearch, setNameSearch] = useContext(PokedexContext);
-	const [idPokemon, setIdPokemon] = useContext(PokedexContext);
+	// const [idPokemon, setIdPokemon] = useContext(PokedexContext);
 	// const [currentPokemon, setCurrentPokemon] = useState({});
 	// const [currentId, setCurrentId] = useState(1);
 
@@ -24,7 +23,7 @@ const Search = () => {
 	// 	setCurrentId(searchedPokemon.id);
 	// 	setCurrentPokemon(searchedPokemon);
 	// };
-	console.log('Search - name: ', nameSearch)
+	// console.log('Search - name: ', nameSearch)
 
 	return (
 		<section className='container'>
@@ -34,7 +33,7 @@ const Search = () => {
       		</Link>
 			<SearchForm />
 
-			<Card isSearch={true} />
+			<Card isSearch={true} display={false} />
 		</section>
 	);
 };
