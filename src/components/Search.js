@@ -1,40 +1,22 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { PokedexContext } from '../context/PokedexContext';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SearchForm from './SearchForm';
 import Card from './Card';
 import getSinglePokemon from '../utils';
 
 const Search = () => {
-	// const [idOrName, setIdOrName] = useContext(PokedexContext); 
-	const [nameSearch, setNameSearch] = useContext(PokedexContext);
 	const [currentPokemon, setCurrentPokemon] = useState({});
-	const [currentId, setCurrentId] = useState();
-
-	// useEffect(() => {
-	// 	setIdOrName('');
-	// 	// getPokemonByName(currentId);
-	// }); // , [currentId]
-
-	// // get single Pokemon object from API
-	// // used to display single Pokedex from search
-	// // pokemonName: name (string)
-	// const getPokemonByName = async (pokemonName) => {
-	// 	const searchedPokemon = await getSinglePokemon(pokemonName);
-
-	// 	setCurrentId(searchedPokemon.id);
-	// 	setCurrentPokemon(searchedPokemon);
-	// };
-	// console.log('Search - name: ', nameSearch)
+	const [error, setError] = useState('');
 
 	const handleSubmit = async (pokemonName) => {
 		try {
 			const searchedPokemon = await getSinglePokemon(pokemonName);
-			setCurrentId(searchedPokemon.id);
 			setCurrentPokemon(searchedPokemon);
+			setError('');
 		} catch (err) {
 			console.log('Card err: ', err);
-			// setError(err);
+			setError('Sorry no results match your search terms.  Please search again.');
+			setCurrentPokemon({});
 		};
 	};
 
@@ -46,8 +28,9 @@ const Search = () => {
 				Pokedex
       		</Link>
 			<SearchForm onSubmit={handleSubmit} />
+			{error ? <h3 className='error-msg'>{error}</h3> : ''}
 			{Object.keys(currentPokemon).length ? (
-				<Card isSearch={true} display={false} currentPokemon={currentPokemon} />
+				<Card isSearch={true} currentPokemon={currentPokemon} />
 			) : ''}
 		</section>
 	);
