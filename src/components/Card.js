@@ -6,16 +6,15 @@ import CardInfo from './CardInfo';
 import getSinglePokemon from '../utils';
 import { PokedexContext } from '../context/PokedexContext';
 
-const Card = ({ isSearch, display }) => {
-  const [idPokemon, setIdPokemon, nameSearch, setNameSearch, error, setError] = useContext(PokedexContext); // displayCard, setDisplayCard, 
+const Card = ({ isSearch, display, currentPokemon, changePokemon }) => {
+  const [idOrName, setIdOrName, error, setError] = useContext(PokedexContext); // displayCard, setDisplayCard, 
   // const [displayCard, setDisplayCard] = useContext(PokedexContext);
   // const [error, setError] = useContext(PokedexContext);
-  const [currentPokemon, setCurrentPokemon] = useState({});
+  // const [currentPokemon, setCurrentPokemon] = useState({});
   const [displayCard, setDisplayCard] = useState(false); // isSearch ? false : true
   // const [currentId, setCurrentId] = useState(1);
 
   // console.log('match currentId | pokemonId: ', currentId, pokemonId);
-  console.log('nameSearch in Card (not in useEffect): ', nameSearch)
   useEffect(() => {
     // display = isSearch ? false : true;
     // console.log('intial display: ', display)
@@ -24,45 +23,44 @@ const Card = ({ isSearch, display }) => {
     // }
   });
 
-  useEffect(() => {
-    console.log('isSearch: ', isSearch)
-    console.log('display: ', display)
-    console.log('nameSearch in Card: ', nameSearch)
-    // setDisplayCard(false);
-    if (!isSearch) {
-      getPokemon(idPokemon);
-    }
-  }, [idPokemon]); // 
+  // useEffect(() => {
+  //   console.log('isSearch: ', isSearch)
+  //   console.log('idOrName: ', idOrName)
+  //   // setDisplayCard(false);
+  //   if (!isSearch) {
+  //     getPokemon(idOrName);
+  //   }
+  // }, [idOrName]); // 
 
   // get single Pokemon object from API
   // used to display single Pokemon
   // pokemonIdentifier: ID (number) or name (string)
-  const getPokemon = async (pokemonIdentifier) => {
-    try {
-      const _currentPokemon = await getSinglePokemon(pokemonIdentifier);
-      setDisplayCard(true);
-      setIdPokemon(_currentPokemon.id);
-      setCurrentPokemon(_currentPokemon);
-      // display = true;
-      console.log('display after get results: ', display)
-    } catch (err) {
-      console.log('Card err: ', err);
-      setError(err);
-      setDisplayCard(false);
-      // display = false;
+  // const getPokemon = async (pokemonIdentifier) => {
+  //   try {
+  //     const _currentPokemon = await getSinglePokemon(pokemonIdentifier);
+  //     setDisplayCard(true);
+  //     setIdOrName(_currentPokemon.id);
+  //     setCurrentPokemon(_currentPokemon);
+  //     // display = true;
+  //     console.log('display after get results: ', display)
+  //   } catch (err) {
+  //     console.log('Card err: ', err);
+  //     setError(err);
+  //     setDisplayCard(false);
+  //     // display = false;
 
-    }
-  };
+  //   }
+  // };
 
-  // change ID to previous or next Pokemon
-  const changePokemon = direction => {
-    // TODO add exceptions for first and last IDs
-    console.log('direction: ', direction, idPokemon);
-    const newId = direction === 'prev' ? idPokemon - 1 : idPokemon + 1;
-    console.log('newId: ', newId);
-    setIdPokemon(newId);
-  };
-
+  // // change ID to previous or next Pokemon
+  // const changePokemon = direction => {
+  //   // TODO add exceptions for first and last IDs
+  //   console.log('direction: ', direction, idOrName);
+  //   const newId = direction === 'prev' ? idOrName - 1 : idOrName + 1;
+  //   console.log('newId: ', newId);
+  //   setIdOrName(newId);
+  // };
+  console.log('currentPokemon (Card): ', currentPokemon)
   const { id, name, weight, height, image } = currentPokemon;
   return (
     <>

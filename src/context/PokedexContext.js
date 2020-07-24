@@ -5,14 +5,14 @@ export const PokedexContext = createContext();
 
 // create Context Provider for components to consume & listen for changes
 export const PokedexContextProvider = props => {
-	const [idPokemon, setIdPokemon] = useState(1);
+	const [idOrName, setIdOrName] = useState(1);
 	const [nameSearch, setNameSearch] = useState('');
 	const [displayCard, setDisplayCard] = useState(false);
 	const [error, setError] = useState('');
 
 	const value = [
-		idPokemon,
-		setIdPokemon,
+		idOrName,
+		setIdOrName,
 		nameSearch,
 		setNameSearch,
 		displayCard,
