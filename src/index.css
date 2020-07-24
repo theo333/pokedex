@@ -33,6 +33,10 @@ code {
   background-color: transparent;
 }
 
+.main .nav-link:hover {
+  font-weight: 600;
+}
+
 .main .nav-link a {
   color: red;
   text-decoration: none;
@@ -45,6 +49,11 @@ code {
 
 .main .nav-link a span svg {
   margin-right: 0.3rem;
+}
+
+.nav button svg:hover {
+  stroke-width: 2.5;
+  filter: brightness(90%);
 }
 
 /************ Card ************/
