@@ -75,8 +75,9 @@ header {
 
 .card .img {
   border: 1px solid red;
+  width: 73%;
   margin: 15px;
-  padding: 15px 35px;
+  padding: 15px 17px;
   background-color: #fffb49;
   border-radius: 5px;
   border: none;
