@@ -13,6 +13,12 @@ code {
     monospace;
 }
 
+header {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
+
 .container {
   min-height: 100vh;
   display: flex;
